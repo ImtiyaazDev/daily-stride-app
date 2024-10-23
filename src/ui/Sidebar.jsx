@@ -14,7 +14,7 @@ export default function Sidebar() {
 	// TODO: Use framer motion for hover and tapping states
 
 	return (
-		<aside className="col-start-1 col-end-2 row-span-full flex flex-col items-center bg-body-componentLight px-8 py-15">
+		<aside className="bg-body-componentLight col-start-1 col-end-2 row-span-full flex flex-col items-center gap-10 px-8 py-15">
 			<figure className="-mt-8 w-40">
 				<img
 					src="/assets/logo.png"
