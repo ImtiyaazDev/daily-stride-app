@@ -11,6 +11,8 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 export default function Sidebar() {
 	const { pathname } = useLocation();
 
+	// TODO: Use framer motion for hover and tapping states
+
 	return (
 		<aside className="col-start-1 col-end-2 row-span-full flex flex-col items-center bg-[#f6f6f6] px-8 py-15">
 			<figure className="-mt-8 w-40">
@@ -22,9 +24,9 @@ export default function Sidebar() {
 			</figure>
 			<nav className="flex h-full flex-col items-center justify-between">
 				<ul className="flex flex-col items-start gap-4">
-					{sidebarLinks.map((link) => (
+					{sidebarLinks.map((link, index) => (
 						<li
-							key={link.id}
+							key={`${link.id}-${index}`}
 							className={`flex w-full items-center gap-3 rounded-lg px-6 py-3 font-heading font-medium ${pathname === link.to ? "bg-primaryBlueLight-200 text-primaryBlueLight-800" : "text-body-textLight"}`}
 						>
 							{link?.text.includes("Dashboard") && <IconLayoutGrid size={24} />}
@@ -44,7 +46,7 @@ export default function Sidebar() {
 						</li>
 					))}
 				</ul>
-				<div className="flex w-full items-center gap-3 rounded-lg bg-red-200 px-6 py-3 font-heading font-medium">
+				<div className="flex w-full items-center gap-3 rounded-lg bg-primaryRed-200 px-6 py-3 font-heading font-medium text-primaryRed-800">
 					<IconLogout2 size={24} />
 					<Link to="/login">Logout</Link>
 				</div>
